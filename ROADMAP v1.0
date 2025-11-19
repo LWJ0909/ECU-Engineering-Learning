@@ -1,0 +1,338 @@
+
+🌟 Version 1.0: Full Vision
+기간: 52주 (실제 65-70주 예상)
+난이도: ★★★★★
+목표: 모든 기능 완벽 구현
+전체 구조
+Phase기간핵심 목표주요 성과물Phase 0Week 1-2RC카 하드웨어 준비기본 주행 시스템Phase 1Week 3-8CAN 드라이버 완성레지스터 레벨 bxCANPhase 2Week 9-14Multi-ECU 시스템3-ECU 분산 아키텍처Phase 3Week 15-24RTOS 통합FreeRTOS 기반 재설계Phase 4Week 25-34AUTOSAR 구조계층화 아키텍처 + Config ToolPhase 5Week 35-42Secure BootRSA 서명 + Rollback 방지Phase 6Week 43-52통합 & 포트폴리오고급 기능 + 문서화
+
+Phase 0: RC카 하드웨어 준비 (Week 1-2)
+목표
+
+RC카 하드웨어 선정 및 조립
+STM32 기본 제어 습득
+기본 주행 시스템 구축
+
+주요 작업
+Week 1: 하드웨어 선정
+
+ RC카 하드웨어 조사 및 선정
+ 부품 호환성 학습
+ 최종 부품 선정 및 주문
+ 선정 과정 문서화
+
+Week 2: 조립 & 테스트
+
+ 섀시 조립
+ 전원 시스템 테스트
+ 모터 드라이버 동작 확인
+ 초음파 센서 연결
+ UART 디버깅 환경 구축
+ 기본 주행 구현
+
+결과물
+
+✅ 동작하는 RC카
+✅ 기본 제어 코드
+✅ 조립 가이드
+
+
+Phase 1: CAN 드라이버 완성 (Week 3-8)
+목표
+
+CAN 프로토콜 완전 이해
+bxCAN 레지스터 레벨 드라이버 구현
+2개 STM32 보드 간 안정적 통신
+
+주요 작업
+Week 3: CAN 이론
+
+ RM0090 Reference Manual CAN 챕터 완독
+ CAN 프레임 구조 정리
+ Bit Timing 계산 이해
+ bxCAN 레지스터 맵 분석
+
+Week 4-5: 기본 구현 (2주)
+
+ CAN_Init() 함수 작성
+ CAN_BTR 레지스터 설정 (1Mbps)
+ Loopback 모드 테스트
+ 2개 MCU 간 Echo 테스트
+ 인터럽트 기반 수신 처리
+Week 6: 필터 & 확장 프레임
+
+ CAN 필터 설정
+ Standard/Extended Frame 구현
+ 필터링 검증
+ 우선순위 테스트
+
+Week 7: 에러 핸들링
+
+ Error Active/Passive/Bus-off 이해
+ TEC/REC 카운터 모니터링
+ 자동 복구 로직
+ 에러 프레임 감지
+
+Week 8: 검증 & 통합
+
+ CANable 연결
+ Wireshark로 트래픽 분석
+ 오실로스코프 파형 확인
+ 스트레스 테스트 (1Mbps, 1000개 메시지)
+ 드라이버 문서화
+
+결과물
+
+✅ 완전 동작하는 CAN 드라이버 (HAL 미사용)
+✅ 2 ECU 간 안정적 통신
+✅ 드라이버 API 문서
+
+
+Phase 2: Multi-ECU 시스템 (Week 9-14)
+목표
+
+3개 ECU 분산 시스템 구축
+CAN 메시지 프로토콜 설계
+Master-Slave 아키텍처
+
+주요 작업
+Week 9-10: 설계 (2주)
+
+ ECU 역할 분리 설계
+
+Master ECU: 조이스틱, 명령
+Motor ECU: PWM 제어
+Sensor ECU: 데이터 수집
+
+
+ CAN ID 체계 설계
+ DBC 파일 작성
+ 메시지 스케줄링 (5/10/20/100ms)
+
+Week 11-12: ECU별 구현 (2주)
+
+ Motor ECU 구현
+ Sensor ECU 구현
+ Master ECU 구현
+
+Week 13: 통합 & 디버깅
+
+ 3개 ECU 동시 동작
+ 타이밍 검증
+ CAN 버스 로드 측정
+ Heartbeat 구현
+ Timeout 감지
+
+Week 14: 최적화 & 문서화
+
+ 메시지 큐잉
+ 우선순위 재조정
+ 통신 프로토콜 문서
+ 시스템 동작 영상
+
+결과물
+
+✅ 3-ECU 분산 시스템
+✅ CAN 프로토콜 문서
+✅ DBC 파일
+✅ 데모 영상
+
+
+Phase 3: RTOS 통합 (Week 15-24)
+목표
+
+FreeRTOS로 시스템 재설계
+멀티태스킹 구조 구현
+실시간 성능 보장
+
+주요 작업
+Week 15-16: FreeRTOS 기본 (2주)
+
+ FreeRTOS 개념 학습
+ STM32에 이식
+ 기본 Task 생성
+ Task 간 통신 (Queue)
+
+Week 17-20: Task 설계 (4주)
+
+ Task 분리 설계
+
+CAN_RX_Task (High)
+CAN_TX_Task (High)
+Control_Task (Medium)
+Sensor_Task (Medium)
+Monitor_Task (Low)
+
+
+ Queue 기반 데이터 흐름
+ 각 ECU별 Task 구현
+ 소프트웨어 타이머 활용
+
+Week 21-23: 동기화 & 최적화 (3주)
+
+ Mutex로 공유 자원 보호
+ Semaphore로 이벤트 동기화
+ Priority Inversion 방지
+ Deadlock 테스트 및 해결
+ Watchdog 통합
+ CPU 사용률 분석
+
+Week 24: 통합 테스트
+
+ 3-ECU RTOS 시스템 통합
+ 타이밍 분석
+ 안정성 테스트 (24시간)
+ Task 구조 문서화
+
+결과물
+
+✅ RTOS 기반 Multi-ECU 시스템
+✅ Task 구조 다이어그램
+✅ 성능 분석 리포트
+
+
+Phase 4: AUTOSAR 구조 (Week 25-34)
+목표
+
+AUTOSAR 계층 구조 구현
+소프트웨어 계층 분리
+Configuration 기반 시스템
+
+주요 작업
+Week 25-26: AUTOSAR 개념 (2주)
+
+ AUTOSAR Classic 아키텍처 이해
+ 계층 구조 학습 (MCAL/BSW/RTE/APP)
+ 인터페이스 개념 정리
+
+Week 27-30: 계층 분리 (4주)
+
+ MCAL 계층 (GPIO/CAN/ADC 추상화)
+ BSW 계층 (CAN State Manager, DEM)
+ RTE 계층 (Runnable 관리)
+ APP 계층 (비즈니스 로직)
+
+Week 31-32: Configuration 시스템 (2주)
+
+ JSON 기반 Configuration
+ Port/Pin 매핑 테이블
+ Runnable 스케줄링 설정
+ Configuration Tool (Python)
+
+Week 33-34: 통합 & 문서화 (2주)
+
+ 전체 계층 통합 테스트
+ Configuration 변경 테스트
+ 블록 다이어그램
+ 각 계층 역할 문서화
+
+결과물
+
+✅ AUTOSAR 스타일 계층 구조
+✅ Configuration Tool
+✅ 블록 다이어그램
+✅ 설계 문서
+
+
+Phase 5: Secure Boot (Week 35-42)
+목표
+
+부트로더 설계 및 구현
+펌웨어 무결성 검증 (RSA)
+안전한 OTA 업데이트
+
+주요 작업
+Week 35-36: 부트로더 설계 (2주)
+
+ Memory Layout 설계
+ Vector Table Relocation
+ Flash 읽기/쓰기 함수
+ Application 점프 코드
+
+Week 37-38: 서명 검증 (2주)
+
+ mbedTLS 라이브러리 포팅
+ SHA256 해시 계산
+ RSA 서명 검증
+ 펌웨어 메타데이터 구조
+
+Week 39-40: OTA 업데이트 (2주)
+
+ UART 펌웨어 수신 프로토콜
+ CRC 검증
+ Flash 쓰기 (DMA)
+ Atomic Update 로직
+ Rollback 대비 백업
+
+Week 41: 보안 강화
+
+ Rollback 방지 (버전 체크)
+ Flash Write Protection
+ Secure Storage 영역
+ Debug Port 비활성화
+
+Week 42: 테스트 & 문서화
+
+ 업데이트 시나리오 테스트
+ 공격 시뮬레이션
+ 보안 설계 문서
+
+결과물
+
+✅ Secure Boot 시스템
+✅ OTA 업데이트 도구
+✅ 보안 설계 문서
+
+
+Phase 6: 통합 & 포트폴리오 (Week 43-52)
+목표
+
+전체 시스템 통합 완성
+포트폴리오 자료 제작
+면접 준비
+
+주요 작업
+Week 43-46: 고급 기능 (4주)
+
+ UDS 진단 (DTC, ECU Reset)
+ Black Box 로깅
+ Fail-Safe 모드
+
+Week 47-48: 전체 통합 (2주)
+
+ 6개 프로젝트 스토리 연결
+ 성능 최적화
+ 24시간 Stress Test
+
+Week 49-50: 문서화 (2주)
+
+ README 대폭 강화
+ 기술 블로그 포스팅 (3-5개)
+ 코드 주석 정리
+
+Week 51-52: 발표 자료 (2주)
+
+ 데모 영상 제작 (5-10분)
+ 면접용 PPT
+ 포트폴리오 사이트
+ GitHub 프로필 완성
+
+결과물
+
+✅ 완전한 ECU 시스템
+✅ 기술 블로그
+✅ 데모 영상
+✅ 면접 자료
+
+
+v1.0 최종 스펙
+Hardware: STM32F4, 라즈베리파이 5, CAN Transceiver
+Bare-metal: GPIO, PWM, ADC, UART, CAN (레지스터)
+RTOS: FreeRTOS (Task, Queue, Mutex, Semaphore)
+Architecture: AUTOSAR (MCAL/BSW/RTE/APP)
+Security: Secure Boot, SHA256, RSA, OTA
+Advanced: UDS, Black Box, Fail-Safe
+Tools: Git, CANable, Oscilloscope, Python Config Tool
+이력서 요약:
+
+"52주간 레지스터부터 Secure Boot까지, 완전한 ECU 시스템을 설계하고 구현"
