@@ -7,7 +7,7 @@ Week 1-2 (2025-01-06 ~ 2025-01-19)
 라즈베리파이 5 + STM32 기반 RC카 하드웨어 세팅
 
 ## 📚 문서
-- **[하드웨어 선정 과정의 어려움](./docs/hardware-selection-difficulties.md)** ⭐
+- **[하드웨어 선정 과정의 어려움](./docs/hardware_selection_difficulties.md)** ⭐
   - 실제로 겪은 고민과 해결 과정
   - 부품 호환성, 전압/전류, 납땜 회피 방법
   - 최종 부품 리스트
@@ -18,7 +18,7 @@ Week 1-2 (2025-01-06 ~ 2025-01-19)
 - L298N 모터 드라이버
 - DC-DC 컨버터 (12V→5V)
 
-[상세 스펙 보기](./docs/hardware-selection-difficulties.md#최종-선정-부품-리스트)
+[상세 스펙 보기](./docs/hardware_selection_difficulties.md#최종-선정-부품-리스트)
 
 ## 📋 체크리스트
 - [ ] 모터 드라이버 연결
