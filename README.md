@@ -1,7 +1,8 @@
 # ECU-Engineering-Learning
+
 자동차 ECU 개발 학습 프로젝트입니다.
 
-# 👋 안녕하세요
+👋 **안녕하세요**
 
 🎓 메카트로닉스 & 자동차공학 전공  
 🚗 **Automotive ECU & Security Engineer** 지망생  
@@ -16,26 +17,38 @@
 - 3-ECU 아키텍처 (Motor, Sensor, Master)
 - ID 기반 CAN 프로토콜 & 우선순위 관리
 
+→ **진행 중**: [01-basic-rc-car](./01-basic-rc-car) | [02-can-driver](./02-can-driver)
+
 ### 2️⃣ RTOS 기반 ECU 시스템
-- FreeRTOS task 설계 (CAN, 제어, 센서)
-- Queue/Semaphore 기반 데이터 흐름
-- Watchdog & 타이밍 분석
+(곧 시작)
 
 ### 3️⃣ AUTOSAR 스타일 계층화 아키텍처
-- MCAL / BSW / RTE / APP 계층 분리
-- JSON 기반 설정
-- RTE에 의한 Runnable 스케줄링
+(곧 시작)
 
-### 4️⃣ Secure Boot (경량 버전)
-- 커스텀 부트로더
-- SHA256 + RSA 서명 검증
-- UART 기반 펌웨어 업데이트
+### 4️⃣ Secure Boot
+(곧 시작)
 
 ---
 
-## 📂 주요 레포지토리
+## 📂 프로젝트 구조
+```
+📁 ECU-Engineering-Learning/
+├── 📁 01-basic-rc-car/          # Week 1-2: RC카 하드웨어
+├── 📁 02-can-driver/            # Week 3-8: CAN 드라이버
+├── 📁 03-multi-ecu-system/      # Week 9-14: Multi-ECU
+├── 📁 04-rtos-integration/      # Week 15-24: RTOS
+├── 📁 05-autosar-architecture/  # Week 25-34: AUTOSAR
+├── 📁 06-secure-boot/           # Week 35-42: Secure Boot
+└── 📁 weekly-log/               # 주간 학습 기록
+    ├── week-01.md
+    └── daily/
+```
 
-곧 업로드 예정...
+---
+
+## 📖 학습 기록
+
+[📚 52주 학습 로그 보기](./weekly-log)
 
 ---
 
@@ -43,13 +56,13 @@
 
 - 자동차 ECU & 차량 네트워크 (CAN, LIN, UDS)
 - 임베디드 보안 (Secure Boot, OTA, HSM)
-- 로보틱스 & AGV 시스템 (A*, ROS2, 디지털 트윈)
+- 로보틱스 & AGV 시스템
 
 ---
 
 ## 📫 연락처
 
-- Email: won0109091834@gmail.com
+- Email: your_email@example.com
 - LinkedIn: [프로필 링크]
 
 ---
