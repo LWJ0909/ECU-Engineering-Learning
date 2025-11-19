@@ -2,11 +2,24 @@
 
 자동차 ECU 개발 학습 프로젝트입니다.
 
-👋 **안녕하세요**
+# 👋 안녕하세요, 이원준입니다
 
 🎓 메카트로닉스 & 자동차공학 전공  
 🚗 **Automotive ECU & Security Engineer** 지망생  
-🛠️ STM32, CAN, FreeRTOS, AUTOSAR 아키텍처, Secure Boot를 활용한 **실제 ECU 시스템** 구축 중
+🛠️ 레지스터 레벨부터 시작하는 **실전 ECU 시스템 개발자**
+
+---
+
+## 🔧 현재 진행 중 (2025)
+
+### [ECU-Engineering-Learning](https://github.com/LWJ0909/ECU-Engineering-Learning)
+1년 52주 ECU 개발 완전 정복 프로젝트
+
+- **현재**: Week 1 완료 - RC카 하드웨어 선정 ✅
+- **목표**: CAN → RTOS → AUTOSAR → Secure Boot
+- **특징**: 레지스터 레벨 구현, 실전 중심
+
+📖 [하드웨어 선정 과정 기록](https://github.com/LWJ0909/ECU-Engineering-Learning/blob/main/01-basic-rc-car/hardware_selection_difficulties.md) - "하드웨어를 사는 것부터가 어려웠다"
 
 ---
 
@@ -62,7 +75,7 @@
 
 ## 📫 연락처
 
-- Email: your_email@example.com
-- LinkedIn: [프로필 링크]
+- Email: won0109091834@gmail.com
+- LinkedIn: (준비 중)
 
 ---
