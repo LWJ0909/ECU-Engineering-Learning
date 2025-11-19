@@ -1,7 +1,7 @@
 # 02. CAN Driver Implementation
 
 ## 📅 기간
-Week 3-8 (2025-01-20 ~ 2025-03-02)
+Week 3-8
 
 ## 🎯 목표
 레지스터 레벨 bxCAN 드라이버 완전 구현
